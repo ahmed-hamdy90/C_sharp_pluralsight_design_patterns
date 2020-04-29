@@ -24,7 +24,6 @@ namespace NullObject.Services
         /// Getting the current learner full details instance 
         /// </summary>
         /// <returns>learner details instance</returns>
-        /// <exception cref="NullReferenceException">throw if learner was not exists</exception>
         public ILearner GetCurrentLearner()
         {
             // go get the learner's id from a JWT token cookie
@@ -36,7 +35,7 @@ namespace NullObject.Services
 
             if (learner == null)
             {
-                throw new NullReferenceException();
+                return new NullLearner();
             }
                 
             return learner;
